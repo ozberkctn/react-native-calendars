@@ -194,12 +194,33 @@ class Day extends Component {
     return (
       <TouchableWithoutFeedback
         onPress={this.onDayPress}
-        onLongPress={this.onDayLongPress}>
+        onLongPress={this.onDayLongPress}
+      >
         <View style={this.style.wrapper}>
           {fillers}
           <View style={containerStyle}>
-            <Text allowFontScaling={false} style={textStyle}>{String(this.props.children)}</Text>
+            <Text allowFontScaling={false} style={textStyle}>
+              {String(this.props.children)}
+            </Text>
           </View>
+          {this.props.state === "disabled" ? (
+            <View
+              style={{
+                width: 48,
+                height: 34,
+                borderBottomWidth: 1,
+                borderBottomColor: "#c4d4da",
+                position: "absolute",
+                top: 0,
+                left: 0,
+                transform: [
+                  { rotate: "-40deg" },
+                  { translateX: 0 },
+                  { translateY: -15 }
+                ]
+              }}
+            />
+          ) : null}
         </View>
       </TouchableWithoutFeedback>
     );
