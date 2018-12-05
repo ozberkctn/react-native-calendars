@@ -197,6 +197,11 @@ class Day extends Component {
       <TouchableWithoutFeedback
         onPress={this.onDayPress}
         onLongPress={this.onDayLongPress}
+        disabled={
+          typeof this.props.marking.disabled !== "undefined"
+            ? this.props.marking.disabled
+            : this.props.state === "disabled"
+        }
       >
         <View style={this.style.wrapper}>
           {fillers}
