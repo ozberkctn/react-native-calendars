@@ -81,6 +81,11 @@ class Day extends Component {
 
     return (
       <TouchableOpacity
+       disabled={
+          typeof this.props.marking.disabled !== "undefined"
+            ? this.props.marking.disabled
+            : this.props.state === "disabled"
+        }
         style={containerStyle}
         onPress={this.onDayPress}
         onLongPress={this.onDayLongPress}
