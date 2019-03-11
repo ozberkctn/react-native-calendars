@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { TouchableOpacity, Text, View } from "react-native";
+import { TouchableOpacity, Text, View, I18nManager } from "react-native";
 import PropTypes from "prop-types";
 
 import styleConstructor from "./style";
@@ -81,7 +81,7 @@ class Day extends Component {
 
     return (
       <TouchableOpacity
-       disabled={
+        disabled={
           typeof this.props.marking.disabled !== "undefined"
             ? this.props.marking.disabled
             : this.props.state === "disabled"
@@ -99,7 +99,7 @@ class Day extends Component {
             style={{
               position: "absolute",
               top: -getPxForWidth(15),
-              left: -getPxForWidth(12),
+              left: I18nManager.isRTL ? getPxForWidth(12) : -getPxForWidth(12),
               width: getPxForWidth(40),
               height: getPxForWidth(40),
               borderBottomWidth: 1,
